@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sum Of Array</title>
+  </head>
+  <body>
+    <form action="" id="sum">
+      <input class="number" type="number" name="number1" id="" />
+      <input class="number" type="number" name="number2" id="" />
+      <input class="number" type="number" name="number3" id="" />
+      <input class="number" type="number" name="number4" id="" />
+      <input type="submit" value="calculate" />
+      <div id="result"></div>
+    </form>
+    <script>
+      const form = document.getElementById("sum");
+      const resultDiv = document.getElementById("result");
+      const arr = [];
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const numberInputs = document.getElementsByClassName("number");
+        let sum = 0;
+
+        for (const input of numberInputs) {
+          arr.push(Number(input.value));
+        }
+
+        sum = arr.reduce((number, acc) => {
+          return acc + number;
+        });
+        resultDiv.textContent = `Sum is ${sum}`;
+      });
+    </script>
+  </body>
+</html>
